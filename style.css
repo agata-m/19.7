@@ -1,0 +1,13 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: darkgrey;
+    color: white;
+    font-size: 3rem;
+    margin-top: 3%;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
