@@ -1,12 +1,16 @@
-let startButton;
-let stopButton;
-let resetButton;
+const startButton = document.getElementById('start');
+const stopButton = document.getElementById('stop');
+const resetButton = document.getElementById('reset');
 
 class Stopwatch extends React.Component {
     constructor(display) {
         super(display);
+        this.setState = {
+            display: ''
+        }
         this.running = false;
         this.display = display;
+        //this.handleOnClick = this.handleOnClick.bind(this);
         this.reset();
         this.print(this.times);
     }
@@ -24,7 +28,7 @@ class Stopwatch extends React.Component {
     }
 
     print() {
-        this.display.innerText = this.format(this.times);
+        this.setState = this.format(this.times);
     }
 
 
@@ -63,6 +67,28 @@ class Stopwatch extends React.Component {
         this.running = false;
         clearInterval(this.watch);
     }
+
+    /*
+    handleOnClick(e) {
+        this.setState( {
+            if(startButton) {
+                stopwatch.start();
+            } else if(stopButton) {
+                stopwatch.stop();
+            } else if(resetButton) {
+                stopwatch.reset();
+            }
+        });
+    }
+    */
+
+    render() {
+       return (
+           <div>
+                <Stopwatch />
+           </div>
+       );
+    }
 }
 
 function pad0(value) {
@@ -74,15 +100,5 @@ function pad0(value) {
     return result;
 }
 
-
 const stopwatch = React.createElement(Stopwatch);
 ReactDOM.render(stopwatch, document.querySelector('.stopwatch'));
-
-ReactDOM.render(React.createElement(startButton), document.getElementById('start'));
-startButton.addEventListener('click', () => stopwatch.start());
-
-ReactDOM.render(React.createElement(stopButton), document.getElementById('stop'));
-stopButton.addEventListener('click', () => stopwatch.stop());
-
-ReactDOM.render(React.createElement(resetButton), document.getElementById('reset'));
-resetButton.addEventListener('click', () => stopwatch.reset());
