@@ -83,11 +83,7 @@ class Stopwatch extends React.Component {
     */
 
     render() {
-       return (
-           <div>
-                <Stopwatch />
-           </div>
-       );
+       return <Stopwatch />
     }
 }
 
